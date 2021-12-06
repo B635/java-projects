@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.illustrated_guide.mapper.PropsMapper">
+
+    <select id="searchProp" parameterType="int" resultType="com.example.illustrated_guide.bean.Props">
+        SELECT *
+        FROM props
+        WHERE id = #{id};
+    </select>
+
+    <select id="showAllProp" resultType="com.example.illustrated_guide.bean.propList">
+        SELECT *
+        FROM props_list;
+    </select>
+
+    <delete id="deleteProp" parameterType="int">
+        DELETE
+        FROM props
+        WHERE id = #{id};
+    </delete>
+
+    <insert id="addProp" parameterType="com.example.illustrated_guide.bean.Props">
+        INSERT INTO props(id, name, description, place, effect)
+        VALUES (#{props.id}, #{props.name}, #{props.description}, #{props.place}, #{props.effect});
+    </insert>
+
+    <update id="changeProp" parameterType="com.example.illustrated_guide.bean.Props">
+        UPDATE props
+        SET name        = #{props.name},
+            description = #{props.description},
+            place       = #{props.place},
+            effect      = #{props.effect}
+        WHERE id = #{props.id};
+    </update>
+
+</mapper>
+
