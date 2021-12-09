@@ -9,9 +9,10 @@
         WHERE id = #{id};
     </select>
 
-    <select id="showAllProp" resultType="com.example.illustrated_guide.bean.propList">
+    <select id="showAllProp" resultType="com.example.illustrated_guide.bean.Props">
         SELECT *
-        FROM props_list;
+        FROM props
+        ORDER BY id;
     </select>
 
     <delete id="deleteProp" parameterType="int">

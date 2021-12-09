@@ -7,6 +7,14 @@ public class Props {
     private String place;
     private String effect;
 
+    public Props(int id, String name, String description, String place, String effect) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.place = place;
+        this.effect = effect;
+    }
+
     public int getId() {
         return id;
     }
@@ -46,6 +54,5 @@ public class Props {
     public void setEffect(String effect) {
         this.effect = effect;
     }
-
 }
 
