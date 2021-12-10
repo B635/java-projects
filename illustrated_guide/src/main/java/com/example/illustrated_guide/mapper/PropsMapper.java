@@ -11,7 +11,7 @@ public interface PropsMapper {
 
     List<Props> showAllProp();
 
-    void addProp(Props props);
+    void addProp(@Param("props") Props props);
 
     void deleteProp(int id);
 

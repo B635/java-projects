@@ -35,4 +35,14 @@ public class UserPropController {
         Props result = new Props(id, body.get("name"), body.get("description"), body.get("place"), body.get("effect"));
         propsService.changeProp(result);
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/addprop/{id}", method = RequestMethod.POST)
+    public void addProps(
+            @PathVariable int id,
+            @RequestBody Map<String, String> body
+    ) {
+        Props result = new Props(id, body.get("name"), body.get("description"), body.get("place"), body.get("effect"));
+        propsService.addProp(result);
+    }
 }
