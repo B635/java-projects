@@ -98,7 +98,7 @@
 
 <script>
 export default {
-  name: "ChangeButten",
+  name: "ChangeButton",
   data: () => ({
     dialog: false,
     idInput: "",

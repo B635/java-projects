@@ -51,7 +51,7 @@ export default {
     return {
       drawer: false,
       items: [
-        {title: '图鉴', icon: 'mdi-view-dashboard', link: '/'},
+        {title: '图鉴', icon: 'mdi-view-dashboard', link: '/home'},
         {title: '开发者模式', icon: 'mdi-account-cog', link: '/admin'},
       ]
     }

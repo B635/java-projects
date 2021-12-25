@@ -17,7 +17,7 @@
               地点：{{ m.place }}
             </h2>
           </v-card-text>
-          <ChangeButten/>
+          <ChangeButton/>
           <v-btn absolute color="red" icon right @click="deleteProp(m.id)">
             <v-icon large>mdi-close-circle</v-icon>
           </v-btn>
@@ -28,12 +28,12 @@
 </template>
 
 <script>
-import ChangeButten from '../components/ChangeButten'
+import ChangeButton from './ChangeButton'
 
 export default {
   name: "AdminProps",
   components: {
-    ChangeButten,
+    ChangeButton,
   },
   props: {
     msg: [],
