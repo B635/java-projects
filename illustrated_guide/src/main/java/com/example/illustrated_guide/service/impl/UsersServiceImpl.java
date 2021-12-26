@@ -15,4 +15,14 @@ public class UsersServiceImpl implements UsersService {
     public Users loginIn(String account, String passwd) {
         return usersMapper.searchUser(account, passwd);
     }
+
+    @Override
+    public void addUser(Users users) {
+        usersMapper.addUser(users);
+    }
+
+    @Override
+    public Users searchUser(String account) {
+        return usersMapper.searchUserByAccount(account);
+    }
 }

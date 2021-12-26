@@ -5,6 +5,12 @@ public class Users {
     private String passwd;
     private boolean is_admin;
 
+    public Users(String account, String passwd) {
+        this.account = account;
+        this.passwd = passwd;
+        this.is_admin = false;
+    }
+
     public String getAccount() {
         return account;
     }

@@ -10,4 +10,14 @@
           AND passwd = #{passwd};
     </select>
 
+    <insert id="addUser" parameterType="com.example.illustrated_guide.bean.Users">
+        INSERT INTO users(account, passwd)
+        VALUES (#{users.account}, #{users.passwd});
+    </insert>
+
+    <select id="searchUserByAccount" parameterType="String" resultType="com.example.illustrated_guide.bean.Users">
+        SELECT *
+        FROM users
+        WHERE account = #{account};
+    </select>
 </mapper>
