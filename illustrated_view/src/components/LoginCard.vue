@@ -73,6 +73,8 @@ export default {
           .then(r => r.text())
           .then(data => {
             if (data === 'true' || data === 'false') {
+              let ls = window.localStorage;
+              ls.setItem('is_admin', data);
               this.$router.replace("/home");
             } else if (data === "AccountMissed") {
               this.alert = true
