@@ -1,8 +1,8 @@
 <template>
   <v-content>
-    <v-img contain
-           gradient="rgba(0,0,0,.33), rgba(192,192,195,.33)"
-           src="@/assets/loginImage.jpeg">
+    <v-img
+        gradient="rgba(0,0,0,.33), rgba(192,192,195,.33)"
+        src="@/assets/loginImage.jpeg">
       <v-container fill-height>
         <v-layout align-center justify-center>
           <v-flex md7 sm8 xs12>
@@ -26,10 +26,10 @@
                 </v-form>
               </v-card-text>
               <v-card-actions>
-                <v-btn>signup</v-btn>
+                <SignUpButton/>
                 <v-spacer></v-spacer>
-                <v-btn dark
-                       @click="verifyAccount()">Login
+                <v-btn
+                    @click="verifyAccount()">Sign in
                 </v-btn>
               </v-card-actions>
               <v-alert
@@ -47,8 +47,13 @@
 </template>
 
 <script>
+import SignUpButton from "../components/SignUpButton"
+
 export default {
   name: "LoginCard",
+  components: {
+    SignUpButton,
+  },
   data: () => ({
     alert: false,
     accountInput: "",
