@@ -63,7 +63,7 @@
           v-model="accountNotNull"
           dismissible
           elevation="3"
-      >账号不能为空
+      >账号,密码不能为空
       </v-alert>
     </v-card>
   </v-dialog>
@@ -93,7 +93,7 @@ export default {
       }).then().catch(e => console.log(e))
     },
     verifyUser() {
-      if (this.accountInput === "") {
+      if (this.accountInput === "" || this.passwordInput === "") {
         this.accountNotNull = true;
       } else {
         let url = "http://127.0.0.1:8080/searchUser/" + this.accountInput;

@@ -2,7 +2,9 @@
   <v-app>
     <v-img
         gradient="rgba(0,0,0,.33), rgba(192,192,195,.33)"
-        src="@/assets/homePage.jpeg" style="height: 100%">
+        lazy-src="@/assets/homePage.jpeg"
+        src="@/assets/homePage.jpeg"
+        style="height: 100%">
       <ToolBar></ToolBar>
       <PropsList></PropsList>
     </v-img>

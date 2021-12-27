@@ -3,6 +3,7 @@
     <v-img
         gradient="rgba(0,0,0,.33), rgba(192,192,195,.33)"
         src="@/assets/loginPage.jpeg"
+        lazy-src="@/assets/loginPage.jpeg"
         style="height: 100%">
       <v-container fill-height>
         <v-layout align-center justify-center>

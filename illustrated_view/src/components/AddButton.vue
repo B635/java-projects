@@ -157,7 +157,7 @@ export default {
                 this.addProp();
               }
             })
-
+            .catch(e => console.log(e))
       }
     }
   }
