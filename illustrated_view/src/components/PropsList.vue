@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     query() {
-      fetch("http://127.0.0.1:8080/userprops", {credentials: 'include'})
+      fetch("http://127.0.0.1:8080/userProps", {credentials: 'include'})
           .then(r => r.json()
           )
           .then(data => this.msg = data)

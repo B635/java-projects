@@ -25,9 +25,11 @@
                 sm="6"
             >
               <v-text-field
-                  v-model="idInput"
+                  :value="idDefault"
+                  filled
                   label="id"
-                  required>
+                  readonly
+              >
               </v-text-field>
             </v-col>
             <v-col
@@ -38,7 +40,7 @@
               <v-text-field
                   v-model="nameInput"
                   label="name"
-                  required>
+              >
               </v-text-field>
             </v-col>
             <v-col
@@ -49,7 +51,7 @@
               <v-text-field
                   v-model="placeInput"
                   label="place"
-                  required>
+              >
               </v-text-field>
             </v-col>
             <v-col
@@ -59,8 +61,7 @@
             >
               <v-text-field
                   v-model="effectInput"
-                  label="effect"
-                  required>
+                  label="effect">
               </v-text-field>
             </v-col>
             <v-col
@@ -71,7 +72,7 @@
               <v-text-field
                   v-model="descriptionInput"
                   label="description"
-                  required>
+              >
               </v-text-field>
             </v-col>
           </v-row>
@@ -99,9 +100,12 @@
 <script>
 export default {
   name: "ChangeButton",
+  props: {
+    idDefault: Number
+  },
   data: () => ({
     dialog: false,
-    idInput: "",
+    idInput: 0,
     nameInput: "",
     descriptionInput: "",
     placeInput: "",
@@ -109,8 +113,9 @@ export default {
   }),
   methods: {
     editProp() {
-      this.dialog = false
-      let url = "http://127.0.0.1:8080/changeprop/" + this.idInput;
+      this.dialog = false;
+      this.idInput = this.idDefault;
+      let url = "http://127.0.0.1:8080/changeProp/" + this.idInput;
       fetch(url, {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
@@ -120,7 +125,8 @@ export default {
           place: this.placeInput,
           effect: this.effectInput
         })
-      }).then().catch(e => console.log(e))
+      }).then().catch(e => console.log(e));
+      window.location.reload();
     },
   },
 }

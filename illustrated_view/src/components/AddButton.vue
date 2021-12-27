@@ -89,11 +89,23 @@
           </v-btn>
           <v-btn color="blue darken-1"
                  text
-                 @click="addProp()"
+                 @click="verifyProp()"
           >
             Sure
           </v-btn>
         </v-card-actions>
+        <v-alert
+            v-model="propExist"
+            dismissible
+            elevation="3"
+        >道具已存在,请勿重新添加
+        </v-alert>
+        <v-alert
+            v-model="idNotNull"
+            dismissible
+            elevation="3"
+        >道具序号不能为空
+        </v-alert>
       </v-card>
     </v-dialog>
   </v-row>
@@ -104,6 +116,8 @@ export default {
   name: "AddButton",
   data: () => ({
     dialog: false,
+    idNotNull: false,
+    propExist: false,
     idInput: "",
     nameInput: "",
     descriptionInput: "",
@@ -113,7 +127,7 @@ export default {
   methods: {
     addProp() {
       this.dialog = false
-      let url = "http://127.0.0.1:8080/addprop/" + this.idInput;
+      let url = "http://127.0.0.1:8080/addProp/" + this.idInput;
       fetch(url, {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
@@ -123,8 +137,29 @@ export default {
           place: this.placeInput,
           effect: this.effectInput
         })
-      }).then().catch(e => console.log(e))
+      }).then().catch(e => console.log(e));
+      window.location.reload();
     },
+    verifyProp() {
+      if (this.idInput === "") {
+        this.idNotNull = true;
+      } else {
+        let url = "http://127.0.0.1:8080/searchProp/" + this.idInput;
+        fetch(url, {
+          method: 'post',
+          headers: {'Content-Type': 'application/json'},
+        })
+            .then(r => r.text())
+            .then(data => {
+              if (data === 'true') {
+                this.propExist = true;
+              } else if (data === "PropMissed") {
+                this.addProp();
+              }
+            })
+
+      }
+    }
   }
 }
 </script>
