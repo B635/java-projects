@@ -9,6 +9,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
+/**********************************************************************
+ Interfaces in this module:
+ showProps()           <-- GET   /userProps
+ deleteProps()         <-- POST  /deleteProp/{id}
+ changeProps()         <-- POST  /changeProp/{id}
+ addProps()            <-- POST  /addProp/{id}
+ verifyProp()          <-- POST  /searchProp/{id}
+
+ use Map<String, String> to represent json
+ *********************************************************************/
+
+
 @Controller
 public class UserPropController {
     @Autowired
@@ -48,7 +60,7 @@ public class UserPropController {
 
     @ResponseBody
     @RequestMapping(value = "/searchProp/{id}", method = RequestMethod.POST)
-    public String login(
+    public String verifyProp(
             @PathVariable int id
     ) {
         Props props = propsService.getProp(id);

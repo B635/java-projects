@@ -8,6 +8,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+/**********************************************************************
+ Interfaces in this module:
+ login.md()          <-- POST  /loginIn
+ verifyUser()     <-- POST  /searchUser/{account}
+ addUser()        <-- POST  /addUser/{account}
+
+ use Map<String, String> to represent json
+ *********************************************************************/
 
 @Controller
 public class LoginController {
@@ -30,7 +38,7 @@ public class LoginController {
 
     @ResponseBody
     @RequestMapping(value = "/searchUser/{account}", method = RequestMethod.POST)
-    public String login(
+    public String verifyUser(
             @PathVariable String account
     ) {
         Users user = usersService.searchUser(account);
