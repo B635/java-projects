@@ -2,7 +2,8 @@
   <v-content style="margin: 15px">
     <v-row>
       <v-col v-for="m in msg" :key="m.id" cols="6">
-        <v-card elevation="10" height="210">
+        <v-card color="rgb(255, 255, 255, 0.75)" elevation="10"
+                height="210">
           <v-card-title>
             {{ m.id }} {{ m.name }}
           </v-card-title>

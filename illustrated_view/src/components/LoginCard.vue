@@ -2,7 +2,8 @@
   <v-content>
     <v-img
         gradient="rgba(0,0,0,.33), rgba(192,192,195,.33)"
-        src="@/assets/loginImage.jpeg">
+        src="@/assets/loginPage.jpeg"
+        style="height: 100%">
       <v-container fill-height>
         <v-layout align-center justify-center>
           <v-flex md7 sm8 xs12>

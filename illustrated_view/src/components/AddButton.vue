@@ -8,7 +8,7 @@
       <template v-slot:activator="{ on, attrs }">
         <v-btn
             block
-            color="primary"
+            dark
             icon
             rounded
             v-bind="attrs"

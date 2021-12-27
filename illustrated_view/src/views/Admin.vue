@@ -1,8 +1,12 @@
 <template>
   <v-app>
-    <ToolBar></ToolBar>
-    <AddButton/>
-    <AdminProps></AdminProps>
+    <v-img
+        gradient="rgba(0,0,0,.33), rgba(192,192,195,.33)"
+        src="@/assets/adminPage.jpeg" style="height: 100%">
+      <ToolBar></ToolBar>
+      <AddButton/>
+      <AdminProps></AdminProps>
+    </v-img>
   </v-app>
 </template>
 

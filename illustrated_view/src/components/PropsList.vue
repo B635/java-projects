@@ -11,6 +11,7 @@
         <v-card
             elevation="10"
             height="200"
+            color="rgb(255, 255, 255, 0.75)"
         >
           <v-card-title>
             {{ m.id }} {{ m.name }}
