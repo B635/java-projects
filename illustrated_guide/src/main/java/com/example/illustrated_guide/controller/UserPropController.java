@@ -15,19 +15,19 @@ public class UserPropController {
     PropsService propsService;
 
     @ResponseBody
-    @RequestMapping("/userprops")
+    @RequestMapping("/userProps")
     public List<Props> showProps() {
         return propsService.showAll();
     }
 
     @ResponseBody
-    @RequestMapping(value = "/deleteprop/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/deleteProp/{id}", method = RequestMethod.POST)
     public void deleteProps(@PathVariable int id) {
         propsService.deleteProp(id);
     }
 
     @ResponseBody
-    @RequestMapping(value = "/changeprop/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/changeProp/{id}", method = RequestMethod.POST)
     public void changeProps(
             @PathVariable int id,
             @RequestBody Map<String, String> body
@@ -37,12 +37,25 @@ public class UserPropController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/addprop/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/addProp/{id}", method = RequestMethod.POST)
     public void addProps(
             @PathVariable int id,
             @RequestBody Map<String, String> body
     ) {
         Props result = new Props(id, body.get("name"), body.get("description"), body.get("place"), body.get("effect"));
         propsService.addProp(result);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/searchProp/{id}", method = RequestMethod.POST)
+    public String login(
+            @PathVariable int id
+    ) {
+        Props props = propsService.getProp(id);
+        if (props == null) {
+            return "PropMissed";
+        } else {
+            return "true";
+        }
     }
 }
